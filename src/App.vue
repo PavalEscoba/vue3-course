@@ -1,6 +1,6 @@
 <template>
   <h1>Posts</h1>
-  <post-form @create="createPost" />
+  <post-form @customCreate="createPost" />
   <post-list :posts="posts" />
 </template>
 <script>
@@ -24,7 +24,6 @@ export default {
   methods: {
     createPost(post) {
       this.posts.push(post);
-      console.log(this.posts);
     },
   },
 };

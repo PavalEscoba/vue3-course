@@ -8,13 +8,12 @@
       placeholder="Name of a post"
     />
     <input
-      v-bind:value="post.body"
-      @input="post.body = $event.target.value"
+      v-model="post.body"
       class="input"
       type="text"
       placeholder="Description of a post"
     />
-    <button @click="createPost" class="btn">Create</button>
+    <button @click="customCreate" class="btn">Create</button>
   </form>
 </template>
 <script>
@@ -28,10 +27,13 @@ export default {
     };
   },
   methods: {
-    createPost() {
+    customCreate() {
       this.post.id = Date.now();
-      console.log(this.post);
-      this.$emit('create', this.post);
+      this.$emit('customCreate', this.post);
+      this.post = {
+        title: '',
+        body: ''
+      }
     },
   },
 };
